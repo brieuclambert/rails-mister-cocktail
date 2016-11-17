@@ -5,6 +5,7 @@ class CocktailsController < ApplicationController
 
   def show
     @cocktail = Cocktail.find(params[:id])
+    @doses = Dose.select{ |d| d.cocktail_id == params[:id].to_i}
   end
 
   def new
@@ -16,6 +17,7 @@ class CocktailsController < ApplicationController
     @cocktail = Cocktail.create(cocktail_params)
     redirect_to cocktail_path(@cocktail)
   end
+
 
 private
 
