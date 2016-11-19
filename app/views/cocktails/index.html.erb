@@ -1,5 +1,36 @@
-YO
-<% @cocktails.each do |cock| %>
-<h2><%=link_to cock.name, cocktail_path(cock) %></h2>
-<% end %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://res.cloudinary.com/brieuclambert/image/upload/e_tilt_shift:22/v1479471046/wyskpj6jag5fkonwl8wp.jpg');">
+  <div class="banner-content">
+    <h1>Allo Cocktail</h1>
+    <p>Tous vos cocktails</p>
+    <%= link_to "Add a cocktail", new_cocktail_path, {class: "navbar-wagon-item navbar-wagon-button btn" } %>
+  </div>
+</div>
+
+
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_tag @cocktail.photo.path, width: 200, height: 300, crop: :fill %>);">
+  <div class="card-category">Cocktail</div>
+  <div class="card-description">
+    <% @cocktails.each do |cock| %>
+    <h2>Un cocktail</h2>
+    <p>Very cool stuff, useful and smart</p>
+  </div>
+  <%= link_to cock.name, cocktail_path(cock)%>
+  <a class="card-link" href="#" ></a>
+</div>
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <% @cocktails.each do |cock| %>
+      <% if cock.photo? %>
+      <%= cl_image_tag cock.photo.path, width: 200, height: 300, crop: :fill %>
+      <% end %>
+      <h2><%=link_to cock.name, cocktail_path(cock) %></h2>
+      <% end %>
+    </div>
+    <
+  </div>
+</div>
+ -->
+
 <h3><%= link_to "Add a cocktail", new_cocktail_path %></h3>
